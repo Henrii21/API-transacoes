@@ -1,6 +1,14 @@
-package com.transicoes.demo;
+package com.transicoes.demo.model;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 public class Transacao {
+    @NotNull
+    @Positive
     private double valor;
     private String dataHora;
 
