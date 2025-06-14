@@ -1,4 +1,4 @@
-package com.transicoes.demo;
+package com.transacoes.demo;
 
 public class Estatisticas {
     private double soma;
