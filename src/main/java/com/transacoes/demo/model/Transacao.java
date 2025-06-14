@@ -1,20 +1,22 @@
-package com.transicoes.demo.model;
+package com.transacoes.demo.model;
 
-import org.springframework.web.bind.annotation.RequestBody;
-
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.time.Instant;
+
 public class Transacao {
+
     @NotNull
     @Positive
     private double valor;
-    private String dataHora;
+
+    @NotNull
+    private Instant dataHora;
 
     public Transacao() {}
 
-    public Transacao(double valor, String dataHora) {
+    public Transacao(double valor, Instant dataHora) {
         this.valor = valor;
         this.dataHora = dataHora;
     }
@@ -27,11 +29,11 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public String getDataHora() {
+    public Instant getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(String dataHora) {
+    public void setDataHora(Instant dataHora) {
         this.dataHora = dataHora;
     }
 }
