@@ -1,14 +1,15 @@
-package com.transacoes.demo.model;
+package com.transacoes.demo.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+
 import java.time.Instant;
 
-public class Transacao {
-
-    @NotNull @Positive
+public class RequisicaoComBancoDTO {
+    @Positive
     private Double valor;
 
-    @NotNull
     private Instant dataHora;
 
     @NotBlank
@@ -18,14 +19,8 @@ public class Transacao {
     @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")
     private String cpf;
 
-    public Transacao() {}
-
-    public Transacao(Double valor, Instant dataHora, String nome, String cpf) {
-        this.valor = valor;
-        this.dataHora = dataHora;
-        this.nome = nome;
-        this.cpf = cpf;
-    }
+    @NotBlank
+    private String banco;
 
     public Double getValor() { return valor; }
     public void setValor(Double valor) { this.valor = valor; }
@@ -38,4 +33,7 @@ public class Transacao {
 
     public String getCpf() { return cpf; }
     public void setCpf(String cpf) { this.cpf = cpf; }
+
+    public String getBanco() { return banco; }
+    public void setBanco(String banco) { this.banco = banco; }
 }
